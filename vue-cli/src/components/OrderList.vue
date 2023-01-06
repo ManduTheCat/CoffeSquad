@@ -5,11 +5,13 @@
         </div>
         <button @click="goParticipation">+</button>
         <ParticipationForm v-if="participationForm"/>
+        <ParticipationList />
     </div>
 </template>
 
 <script>
 import OrderItem from '@/components/OrderItem'
+import ParticipationList from '@/components/ParticipationList'
 import ParticipationForm from '@/components/ParticipationForm'
 import axios from 'axios'
 const API_URL = 'http://127.0.0.1:8081'
@@ -29,25 +31,13 @@ export default {
   components : {
     OrderItem,
     ParticipationForm,
+    ParticipationList,
   },
   methods: {
     goParticipation (){
         this.participationForm = true;
     },
-    addParticipation (){
-        axios({
-            method: 'post',
-            url: `${API_URL}/addParticipation/`,
-            data: {
-                username: this.username,
-                storeLink: this.storeLink,
-                endTime: this.endTime,
-            },
-        })
-            .then((res) => {
-            console.log(res)
-            })
-    },
+    
   },
   created() {
     console.log(this.participationForm);
