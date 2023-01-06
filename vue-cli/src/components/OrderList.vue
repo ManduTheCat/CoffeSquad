@@ -4,18 +4,13 @@
             <OrderItem :order=order />
         </div>
         <button @click="goParticipation">+</button>
-        <div v-if="participationForm">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="이름" aria-label="Username" v-model="username">
-                <input type="text" class="form-control" placeholder="메뉴" aria-label="Menu" v-model="menu">
-                <button @click="addParticipation">입력</button>
-            </div>
-        </div>
+        <ParticipationForm v-if="participationForm"/>
     </div>
 </template>
 
 <script>
 import OrderItem from '@/components/OrderItem'
+import ParticipationForm from '@/components/ParticipationForm'
 import axios from 'axios'
 const API_URL = 'http://127.0.0.1:8081'
 export default {
@@ -33,6 +28,7 @@ export default {
   },
   components : {
     OrderItem,
+    ParticipationForm,
   },
   methods: {
     goParticipation (){

@@ -1,13 +1,13 @@
 <template>
   <div>
     Coffee Squad
-    <OrderIn />
+    <OrderForm />
     <OrderList />
   </div>
 </template>
 
 <script>
-import OrderIn from '@/components/OrderIn'
+import OrderForm from '@/components/OrderForm'
 import OrderList from '@/components/OrderList'
 export default {
   name: 'App',
@@ -16,7 +16,7 @@ export default {
     }
   },
   components: {
-    OrderIn,
+    OrderForm,
     OrderList,
   },
   methods: {
