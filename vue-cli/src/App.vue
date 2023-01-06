@@ -1,13 +1,13 @@
 <template>
   <div>
     Coffee Squad
-    <CoffeeItem />
+    <OrderIn />
     <OrderList />
   </div>
 </template>
 
 <script>
-import CoffeeItem from '@/components/CoffeeItem'
+import OrderIn from '@/components/OrderIn'
 import OrderList from '@/components/OrderList'
 // import HomeHeader from '@/components/HomeHeader'
 // import InputValidModal from '@/components/InputValidModal'
@@ -27,7 +27,7 @@ export default {
     }
   },
   components: {
-    CoffeeItem,
+    OrderIn,
     OrderList,
     // HomeHeader,
     // LoginModal,
