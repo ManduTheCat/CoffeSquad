@@ -18,7 +18,7 @@ export default {
   name: 'CoffeeItem',
   data () {
     return {
-      username:'',
+      squadOwner:'',
       storeLink:'',
       endTime:'',
     }
@@ -40,7 +40,7 @@ export default {
         method: 'post',
         url: `${API_URL}/addOrder/`,
         data: {
-          username: this.username,
+          squadOwner: this.squadOwner,
           storeLink: this.storeLink,
           endTime: this.endTime,
         },
