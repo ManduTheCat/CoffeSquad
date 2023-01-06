@@ -40,8 +40,6 @@ export default {
     
   },
   created() {
-    console.log(this.participationForm);
-
     axios({
         method: 'get',
         url: `${API_URL}/orderList`,
