@@ -19,17 +19,34 @@ public class SquadController {
     @GetMapping
     public List<Squad> getSquad(){
         List<Squad> findALl = coffeSquadEntityRep.findAll();
+        for(Squad squad : findALl){
+            log.info(squad.getSquadOwner());
+        }
         return findALl;
     }
-    @PostMapping
 
+//     맴버를 스쿼드를 추가 하려며 어디스쿼드에 추가 해야얗지
+    //등록하는거 한번에
+    @GetMapping("/memberId/{name}")
+    public String getSquardIdByOwnerName(@PathVariable("name") String name) throws Exception {
+        log.info("input id {}",name);
+        
+        List<Squad> findAllList = coffeSquadEntityRep.findAll();
+        for(Squad squad : findAllList){
+            if(squad.getSquadOwner().equals(name)){
+            }
+        }
+        return null;
+    }
+    @PostMapping("/addOrder")
     public Squad setSquad(@RequestParam Map<String, Object> formBody){
-        log.info((String) formBody.get("setSquadOwner"));
+        log.info("input {}",(String) formBody.get("squadOwner"));
+        log.info("input {}",(String) formBody.get("storeLink"));
+        log.info("input {}",(String) formBody.get("EndTime"));
         Squad squad = new Squad();
-        squad.setSquadOwner("김명진");
-        squad.setCount("1");
-        squad.setStoreLink("test.com");
-        squad.setEndTime("16시");
+        squad.setSquadOwner((String)formBody.get("squadOwner"));
+        squad.setStoreLink((String)formBody.get("storeLink"));
+        squad.setEndTime((String)formBody.get("EndTime"));
 
         coffeSquadEntityRep.save(squad);
         return squad;
