@@ -24,7 +24,6 @@ export default {
     }
   },
   props: {
-    // movie: Object,
   },
   components : {
   },
@@ -46,48 +45,13 @@ export default {
         },
       })
         .then((res) => {
-          console.log(res)
-          
+          console.log(res) // 입력이 성공적으로 끝나면 data에 orderlist를 return 해주세요.
+          this.$emit('successOrderIn', res.data)
         })
 
     }, 
-    // goToDetail() {
-    //   this.$router.push({name: 'MovieDetail', params: {movie_id: this.movie.id}})
-    // },
-    // changeHeaderBg() {
-    //   const headerBg = document.getElementById('header-bg')
-    //   const backdrop = `url(https://image.tmdb.org/t/p/original${this.movie.backdrop_path})`
-    //   headerBg.style.backgroundImage = backdrop
-    // },
-    // likeClick () {
-    //   if (this.isLogin) {
-    //     const token = this.$cookies.get('jwt')
-    //     console.log('좋아요 클릭 -> 로그인 됨')
-    //     // movie 에 좋아요 수가 있어야 되고
-    //     // 내가 좋아요 한 목록이 있어야 되고
-    //     axios({
-    //       method: 'post',
-    //       headers: {
-    //         'Authorization': `Bearer ${token}`,
-    //       },
-    //       url: `${API_URL}/movies/${this.movie.id}/likes/`,
-    //     })
-    //       .then((res) => {
-    //         console.log(res)
-    //       })
-    //   } else {
-    //     console.log('좋아요 클릭 -> 로그인 안됨')
-    //     // this.$emit('change')
-    //     this.$store.commit('LOGIN_MODAL_OPEN')
-    //   }
-    // },
-    // modalGoToLogin () {
-    // },
   },
   computed : {
-    // isLogin () {
-    //   return this.$store.state.isLogin
-    // },
   }
 }
 </script>

@@ -13,20 +13,18 @@
 import OrderItem from '@/components/OrderItem'
 import ParticipationList from '@/components/ParticipationList'
 import ParticipationForm from '@/components/ParticipationForm'
-import axios from 'axios'
-const API_URL = 'http://127.0.0.1:8081'
+
 export default {
     name: 'OrderList',
   data () {
     return {
-        orderList:null,
         participationForm:false,
         username:'',
         menu:'',
     }
   },
   props: {
-    // movie: Object,
+    orderList: Object,
   },
   components : {
     OrderItem,
@@ -37,19 +35,9 @@ export default {
     goParticipation (){
         this.participationForm = true;
     },
-    
   },
   created() {
-    axios({
-        method: 'get',
-        url: `${API_URL}/orderList`,
-    })
-    .then(res => {
-        this.orderList = res.data
-    })
-    .catch(err => {
-        console.log(err)
-    })
+    
   },
   computed : {
     
