@@ -140,9 +140,6 @@ export default {
     // }
   },
   mounted () {
-    this.isLogin = this.$cookies.get("jwt") ? true : false
-    this.username = this.$cookies.get("username")
-    this.imgUrl = this.$cookies.get("imgUrl")
   }
 }
 </script>
