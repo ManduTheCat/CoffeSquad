@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="이름" aria-label="Username" v-model="username">
+      <input type="text" class="form-control" placeholder="이름" aria-label="SquadOwner" v-model="squadOwner">
       <input type="text" class="form-control" placeholder="가게링크" aria-label="StoreLink" v-model="storeLink">
       <input type="text" class="form-control" placeholder="마감시간 ex)13:00" aria-label="EndTime" v-model="endTime">
       <button @click="addOrder">입력</button>

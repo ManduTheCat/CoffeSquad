@@ -7,8 +7,26 @@
 </template>
 
 <script>
-export default {
+import axios from 'axios'
+const API_URL = 'http://127.0.0.1:8081'
 
+export default {
+    methods : {
+        addParticipation (){
+            axios({
+                method: 'post',
+                url: `${API_URL}/addParticipation/`,
+                data: {
+                    username: this.username,
+                    storeLink: this.storeLink,
+                    endTime: this.endTime,
+                },
+            })
+                .then((res) => {
+                console.log(res)
+                })
+        },
+    }
 }
 </script>
 
