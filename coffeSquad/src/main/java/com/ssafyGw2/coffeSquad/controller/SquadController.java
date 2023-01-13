@@ -2,6 +2,7 @@ package com.ssafyGw2.coffeSquad.controller;
 
 import com.ssafyGw2.coffeSquad.domain.Squad;
 import com.ssafyGw2.coffeSquad.repository.CoffeSquadEntityRep;
+import com.ssafyGw2.coffeSquad.repository.MemberEntityRep;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import java.util.Objects;
 public class SquadController {
     @Autowired
     CoffeSquadEntityRep coffeSquadEntityRep;
+    @Autowired
+    MemberEntityRep memberEntityRep;
     @GetMapping
     public List<Squad> getSquad(){
         List<Squad> findALl = coffeSquadEntityRep.findAll();
@@ -27,15 +30,11 @@ public class SquadController {
 
 //     맴버를 스쿼드를 추가 하려며 어디스쿼드에 추가 해야얗지
     //등록하는거 한번에
+    // 멤버가 속한 스쿼드를 반환해준다
     @GetMapping("/memberId/{name}")
     public String getSquardIdByOwnerName(@PathVariable("name") String name) throws Exception {
         log.info("input id {}",name);
-        
-        List<Squad> findAllList = coffeSquadEntityRep.findAll();
-        for(Squad squad : findAllList){
-            if(squad.getSquadOwner().equals(name)){
-            }
-        }
+        coffeSquadEntityRep.findSquadByName(name);
         return null;
     }
     @PostMapping("/addOrder")
